@@ -1,7 +1,7 @@
 # iOS_Seoyoun
 
-#Netflix clone
-##= CollectionView, TableBar, NavigationBar를 이용하여 netflix 화면 만들기
+# Netflix clone
+## = CollectionView, TableBar, NavigationBar를 이용하여 netflix 화면 만들기
 
 1. HomeView
    
