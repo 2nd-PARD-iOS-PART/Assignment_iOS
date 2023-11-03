@@ -12,12 +12,14 @@ class DetailViewController: UIViewController {
     var memo: UpcomingModel?
     weak var delegate: DetailViewControllerDelegate?
     
+    // delegate로 연결
     func sendDataBackToUpcoming() {
             if let memo = memo {
                 delegate?.didUpdateData(memo)
             }
         }
     
+    // 바탕
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -29,7 +31,7 @@ class DetailViewController: UIViewController {
         homeFeedTable.tableHeaderView = headerView
     }
     
-    
+    // header 부분 이미지
     private let upImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
@@ -39,8 +41,8 @@ class DetailViewController: UIViewController {
     }()
     
     
-     //section 구분
-    let sectionTitles : [String] = ["Previews", "Continue Watching for Seoyoun", "My List", "Europe movie", "Romance/Drama", "Action/Thriller"]
+//     section 구분
+    let sectionTitles : [String] = ["N series", "Selling sunset", "information", "play", "download", "explanation", "icon", "episode"]
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -69,6 +71,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 1
     }
@@ -104,7 +107,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource{
         return sectionTitles[section]
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {//to stick the navigationbar to the top
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset
 

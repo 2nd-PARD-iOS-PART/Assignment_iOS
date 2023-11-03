@@ -14,12 +14,14 @@ class DownloadViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
+        // downloadIcon
         let downloadIconImageView = UIImageView()
         let downloadIconImage = UIImage(named: "downloadicon")
         downloadIconImageView.image = downloadIconImage
         view.addSubview(downloadIconImageView)
         downloadIconImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        // download label
         let label = UILabel()
         label.text = "Movies and TV shows that you\ndownload appear here."
         label.numberOfLines = 2
@@ -29,6 +31,7 @@ class DownloadViewController: UIViewController {
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        // download button
         let button = UIButton(type: .system)
         button.setTitle("Find Something to Download", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)

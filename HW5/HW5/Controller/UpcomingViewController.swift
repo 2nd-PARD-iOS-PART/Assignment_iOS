@@ -36,7 +36,7 @@ class UpcomingViewController: UIViewController {
     }
     
     func setTableView() {
-        // Positioning
+        // 위치
         UpcomingTable.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             UpcomingTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -46,6 +46,7 @@ class UpcomingViewController: UIViewController {
         ])
     }
     
+    // Navigation Bar
     private func configureNavbar() {
         let item1Font = UIFont.systemFont(ofSize: 20, weight: .bold)
         let logoImage = UIImage(named: "bell logo")?.withRenderingMode(.alwaysOriginal)
@@ -55,6 +56,7 @@ class UpcomingViewController: UIViewController {
         navigationItem.leftBarButtonItems = [logo, item1]
     }
         
+    // button 눌렀을 때
     @objc private func barButtonPressed() {
     }
 
@@ -67,22 +69,19 @@ class UpcomingViewController: UIViewController {
             let upcomingSubViewController = UpcomingSubViewController()
             navigationController?.pushViewController(upcomingSubViewController, animated: true)
         }
-
+    
+    // button 눌렀을 때
     @objc func playButtonTapped() {
         navigateToUpcomingSubView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true) // Deselect the row after selection
+            tableView.deselectRow(at: indexPath, animated: true)
 
-            // You can create an instance of your DetailViewController here
             let detailViewController = DetailViewController()
             
-            // You may want to pass data to the detail view controller
-            // For example, if you have a memo for each cell, you can do something like this:
             detailViewController.memo = UpcomingModel.UpcomingModelData[0][indexPath.row]
             
-            // Push the detail view controller onto the navigation stack
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     
@@ -96,6 +95,7 @@ class UpcomingViewController: UIViewController {
 }
 
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
+     //  Section
     func numberOfSections(in tableView: UITableView) -> Int {
         return UpcomingModel.UpcomingModelData[0].count
     }
@@ -111,6 +111,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
 
         let attributedText = NSMutableAttributedString(string: model.title)
 
+        // Nov 6 의 글자크기 작게 만들기
         if let range = model.title.range(of: "Nov 6") {
             let nsRange = NSRange(range, in: model.title)
             attributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: 12), range: nsRange)
@@ -120,8 +121,9 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.numberOfLines = 3
         cell.textLabel?.lineBreakMode = .byWordWrapping
 
+        // image 크기
         if let image = UIImage(named: model.image) {
-            let imageSize = CGSize(width: 150, height: 150)
+            let imageSize = CGSize(width: 113, height: 55)
             cell.imageView?.frame = CGRect(x: 10, y: 10, width: imageSize.width, height: imageSize.height)
             cell.imageView?.image = image
         }
