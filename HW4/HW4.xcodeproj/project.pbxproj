@@ -125,10 +125,10 @@
 				2D9382512AE4185900D907C6 /* AppDelegate.swift */,
 				2D9382532AE4185900D907C6 /* SceneDelegate.swift */,
 				2D9382552AE4185900D907C6 /* ViewController.swift */,
+				2D9382992AE41A1B00D907C6 /* MainTabBarViewController.swift */,
 				2D93825A2AE4185C00D907C6 /* Assets.xcassets */,
 				2D93825C2AE4185C00D907C6 /* LaunchScreen.storyboard */,
 				2D93825F2AE4185C00D907C6 /* Info.plist */,
-				2D9382992AE41A1B00D907C6 /* MainTabBarViewController.swift */,
 			);
 			path = HW4;
 			sourceTree = "<group>";
