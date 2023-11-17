@@ -75,7 +75,9 @@ class DownloadViewController: UIViewController {
         //button의 위치
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.topAnchor.constraint(equalTo: view.topAnchor, constant: 704),
+//            button.topAnchor.constraint(equalTo: view.topAnchor, constant: 704),
+
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 280),
         ])
         
         
